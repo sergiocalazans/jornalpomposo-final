@@ -6,7 +6,7 @@ Este projeto tem como objetivo divulgar conteúdos sobre meio ambiente, ecologia
 ---
 
 ## Link do site
-
+<a href="https://jornalpomposo-final.vercel.app/">Jornal Pomposo</a> 
 
 
 ## 💚 Feito com carinho por pessoas que acreditam em um mundo mais sustentável

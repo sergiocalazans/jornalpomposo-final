@@ -1,0 +1,227 @@
+/* Estilos da Página Redação (Equipe) */
+
+/* Estiliza o contêiner principal da página da equipe. */
+.redacao-container {
+  /* Define a largura máxima do contêiner para 900px, evitando que fique muito largo em telas grandes. */
+  max-width: 900px;
+  /* Centraliza o contêiner na página (funciona em conjunto com max-width). */
+  margin: 0 auto;
+  /* Adiciona espaçamento interno: 10rem no topo, 1.5rem nos lados, 3rem na base. */
+  padding: 10rem 1.5rem 3rem;
+  /* Centraliza todo o texto e elementos inline dentro do contêiner. */
+  text-align: center;
+}
+
+/* Estiliza o título principal da seção (ex: "Nossa Equipe"). */
+.titulo-secao {
+  /* Define a família da fonte do título. */
+  font-family: 'Fredoka', sans-serif;
+  /* Define o tamanho da fonte. */
+  font-size: 2.5rem;
+  /* Define a cor do texto usando uma variável global. */
+  color: var(--verdeescuro);
+  /* Adiciona uma margem inferior para separar o título do slider abaixo. */
+  margin-bottom: 2rem;
+}
+
+/* Estiliza o contêiner que envolve todo o slider, incluindo os botões. */
+.slider-container {
+  /* Define um contexto de posicionamento para os botões, que usarão 'position: absolute'. */
+  position: relative;
+  /* Faz o contêiner ocupar 100% da largura de seu pai (.redacao-container). */
+  width: 100%;
+  /* Define a cor de fundo do slider. */
+  background-color: var(--verdefundo);
+  /* Arredonda os cantos do contêiner. */
+  border-radius: 20px;
+  /* Adiciona uma sombra para dar profundidade ao slider. */
+  box-shadow: 0 10px 30px var(--sombra);
+  /* Adiciona espaçamento interno (1rem no topo/base, 0 nos lados). */
+  padding: 1rem 0;
+  /* Essencial: esconde qualquer parte dos slides que esteja fora dos limites do contêiner. */
+  overflow: hidden; 
+}
+
+/* Estiliza o elemento que efetivamente se move e contém todos os slides. */
+.slider {
+  /* Ativa o layout Flexbox, alinhando todos os slides lado a lado em uma única linha. */
+  display: flex;
+  /* Anima a propriedade 'transform' (o movimento do slider) suavemente. É melhor definir aqui do que no JS. */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Estiliza cada slide individual dentro do slider. */
+.slide {
+  /* Garante que cada slide ocupe no mínimo 100% da largura do contêiner pai visível (.slider-container). */
+  min-width: 100%;
+  /* Garante que o padding e a borda não adicionem à largura total do slide, evitando problemas de cálculo. */
+  box-sizing: border-box;
+  
+  /* Usa Flexbox para organizar e centralizar o conteúdo DENTRO de cada slide. */
+  display: flex;
+  flex-direction: column; /* Empilha os itens (foto, nome, etc.) verticalmente. */
+  align-items: center;    /* Centraliza os itens horizontalmente. */
+  justify-content: center; /* Centraliza os itens verticalmente. */
+  
+  /* Adiciona espaçamento interno para afastar o conteúdo das bordas do slide. */
+  padding: 1rem 2rem;
+}
+
+/* Estiliza a foto de cada integrante da equipe. */
+.integrante-foto {
+  /* Define uma largura fixa para a foto. */
+  width: 150px;
+  /* Define uma altura fixa para a foto, criando um quadrado. */
+  height: 150px;
+  /* Com 'border-radius: 50%', transforma o quadrado em um círculo perfeito. */
+  border-radius: 50%;
+  /* Garante que a imagem preencha o círculo sem distorcer, cortando o excesso se necessário. */
+  object-fit: cover; 
+  /* Adiciona uma borda colorida ao redor da foto. */
+  border: 4px solid var(--verdemediano);
+  /* Adiciona uma sombra sutil à foto. */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  /* Cria um espaço abaixo da foto, separando-a do nome. */
+  margin-bottom: 1.5rem;
+}
+
+/* Estiliza o nome de cada integrante. */
+.integrante-nome {
+  /* Define a família da fonte. */
+  font-family: 'Fredoka', sans-serif;
+  /* Define o tamanho da fonte. */
+  font-size: 1.5rem;
+  /* Define a cor do texto. */
+  color: var(--verdeescuro);
+  /* Adiciona um pequeno espaço abaixo do nome. */
+  margin-bottom: 0.5rem;
+}
+
+/* Estiliza o link do portfólio como um botão. */
+.integrante-portfolio {
+  /* Permite que o link se comporte como um bloco, aceitando padding e margin. */
+  display: inline-block;
+  /* Remove o sublinhado padrão do link. */
+  text-decoration: none;
+  /* Define a cor do texto. */
+  color: var(--verdeescuro);
+  /* Deixa o texto em negrito. */
+  font-weight: bold;
+  /* Adiciona espaçamento interno. */
+  padding: 0.5rem 1rem;
+  /* Arredonda os cantos do botão. */
+  border-radius: 20px;
+  /* Define o fundo como transparente (estilo "ghost button"). */
+  background-color: transparent;
+  /* Adiciona uma borda sutil. */
+  border: 2px solid var(--verdemediclaro);
+  /* Anima todas as propriedades que mudam no hover. */
+  transition: all 0.3s ease;
+  /* Adiciona um espaço abaixo do botão. */
+  margin-bottom: 1.5rem;
+}
+
+/* Define os estilos para quando o mouse está sobre o link do portfólio. */
+.integrante-portfolio:hover {
+  /* Muda a cor de fundo no hover. */
+  background-color: var(--verdemediano);
+  /* Muda a cor do texto para branco. */
+  color: var(--branco);
+  /* Muda a cor da borda para combinar com o novo fundo. */
+  border-color: var(--verdemediano);
+}
+
+/* Estiliza o contêiner dos ícones de redes sociais. */
+.integrante-social {
+  /* Ativa o Flexbox para alinhar os ícones. */
+  display: flex;
+  /* Cria um espaço de 1.5rem entre cada ícone. */
+  gap: 1.5rem;
+}
+
+/* Estiliza as imagens (ícones) dentro dos links de redes sociais. */
+.integrante-social img {
+  /* Define a largura do ícone. */
+  width: 30px;
+  /* A altura se ajusta automaticamente para manter a proporção. */
+  height: auto;
+  /* Anima a propriedade 'transform' suavemente. */
+  transition: transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse sobre o link do ícone. */
+.integrante-social a:hover img {
+  /* Aumenta o tamanho do ícone em 15%, criando um efeito de zoom. */
+  transform: scale(1.15);
+}
+
+/* Estilos gerais para os botões de navegação do slider (próximo/anterior). */
+.slider-btn {
+  /* Posiciona os botões em relação ao .slider-container (que tem 'position: relative'). */
+  position: absolute;
+  /* Empurra o topo do botão para a metade da altura do contêiner. */
+  top: 50%;
+  /* Puxa o botão para cima em 50% da SUA PRÓPRIA altura, centralizando-o verticalmente. */
+  transform: translateY(-50%);
+  /* Define a cor de fundo. */
+  background-color: var(--verdeescuro);
+  /* Define a cor do ícone (seta). */
+  color: var(--branco);
+  /* Remove qualquer borda padrão. */
+  border: none;
+  /* Transforma o botão em um círculo. */
+  border-radius: 50%;
+  /* Define a largura do botão. */
+  width: 45px;
+  /* Define a altura do botão. */
+  height: 45px;
+  /* Define o tamanho da fonte (para a seta). */
+  font-size: 1.5rem;
+  /* Mostra um cursor de mão para indicar que é clicável. */
+  cursor: pointer;
+  /* Garante que os botões fiquem acima dos slides. */
+  z-index: 10;
+  /* Usa flexbox para centralizar perfeitamente o ícone da seta dentro do botão. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Anima a mudança da cor de fundo. */
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre os botões do slider. */
+.slider-btn:hover {
+  /* Muda a cor de fundo. */
+  background-color: var(--verdemediano);
+}
+
+/* Posiciona o botão "anterior" no lado esquerdo. */
+.slider-btn.prev {
+  left: 15px;
+}
+
+/* Posiciona o botão "próximo" no lado direito. */
+.slider-btn.next {
+  right: 15px;
+}
+
+
+/* Inicia o bloco de estilos que só se aplicam em telas com 768px de largura ou menos. */
+@media (max-width: 768px) {
+  
+  /* Reduz o tamanho do título da seção em telas pequenas. */
+  .titulo-secao {
+    font-size: 2rem;
+  }
+  
+  /* Reduz o tamanho do nome do integrante. */
+  .integrante-nome {
+    font-size: 1.3rem;
+  }
+  
+  /* Reduz o tamanho da foto do integrante para melhor encaixe. */
+  .integrante-foto {
+    width: 120px;
+    height: 120px;
+  }
+}

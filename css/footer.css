@@ -1,0 +1,34 @@
+/* Estilos do Footer */
+
+/* O seletor 'footer' aplica estas regras a todas as tags <footer> da página. */
+footer {
+  /* Alinha todo o texto dentro do rodapé ao centro horizontalmente. */
+  text-align: center;
+
+  /* Define a cor de fundo do rodapé. Ele usa a variável '--menu' que você
+     definiu no :root, garantindo consistência com a cor do menu de navegação. */
+  background-color: var(--menu);
+
+  /* Adiciona um espaçamento interno (preenchimento) de 1rem (geralmente 16px) 
+     em todos os quatro lados do rodapé, afastando o conteúdo das bordas. */
+  padding: 1rem;
+
+  /* Define o tamanho da fonte do texto dentro do rodapé para 0.9rem (um pouco menor
+     que o texto padrão do corpo), o que é comum para informações secundárias. */
+  font-size: 0.9rem;
+
+  /* Define a cor do texto do rodapé. Ele usa a variável '--titulo-claro', 
+     garantindo um bom contraste com o fundo escuro definido por '--menu'. */
+  color: var(--titulo-claro);
+
+  /* Adiciona uma margem de 2rem na parte superior do rodapé, criando um espaço
+     vertical que o separa do conteúdo principal acima dele. */
+  margin-top: 2rem;
+
+  /* Aplica a animação chamada 'fadeIn' (definida em seu arquivo @keyframes).
+     - 'fadeIn': O nome da animação a ser usada.
+     - '1s': A duração total da animação (1 segundo).
+     - 'ease-out': A função de tempo, que faz a animação começar rápida e desacelerar
+       suavemente no final, criando um efeito mais natural. */
+  animation: fadeIn 1s ease-out;
+}

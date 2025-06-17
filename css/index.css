@@ -1,0 +1,155 @@
+
+/* ========================================= */
+/*           ESTILO DAS NOTÍCIAS (CARDS)     */
+/* ========================================= */
+
+/* Estiliza o contêiner que agrupa todos os cards de notícia. */
+.grid-container {
+  /* Ativa o layout de Grade (CSS Grid), ideal para layouts bidimensionais. */
+  display: grid;
+  
+  /* A linha mais importante para a responsividade:
+     - repeat(): Cria um padrão repetido de colunas.
+     - auto-fit: Diz ao navegador para encaixar o máximo de colunas que couberem no espaço disponível.
+     - minmax(300px, 1fr): Define que cada coluna terá no MÍNIMO 300px, mas pode crescer para ocupar
+       uma fração (1fr) do espaço extra, se houver.
+     O resultado é uma grade que se ajusta de 4, para 3, para 2, para 1 coluna automaticamente. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
+  /* Define um espaço de 2rem (aprox. 32px) entre cada card, tanto na horizontal quanto na vertical. */
+  gap: 2rem;
+  
+  /* Define a largura máxima do contêiner para 1200px, evitando que ele fique muito largo em telas grandes. */
+  max-width: 1200px;
+  
+  /* Quando combinado com 'max-width', 'margin: 0 auto' centraliza o contêiner na página. */
+  margin: 0 auto;
+  
+  /* Adiciona espaçamento interno: 12rem no topo (para não ficar atrás do header fixo), 2rem nos lados e 2rem na base. */
+  padding: 12rem 2rem 2rem;
+}
+
+/* Estiliza cada card individualmente (a tag <a> que envolve a imagem e o título). */
+.thumbnail {
+  /* Ativa o layout Flexbox para o conteúdo interno do card (imagem e texto). */
+  display: flex;
+  
+  /* Empilha os itens do flexbox (imagem e h2) verticalmente, um sobre o outro. */
+  flex-direction: column;
+  
+  /* Garante que o card ocupe toda a altura da sua célula na grade. Essencial para que os cards na mesma linha tenham a mesma altura. */
+  height: 100%;
+  
+  /* Remove o sublinhado padrão dos links. */
+  text-decoration: none;
+  
+  /* Define a cor de fundo do card usando uma variável global. */
+  background: var(--verdefundo);
+  
+  /* Define a cor do texto do card usando uma variável global. */
+  color: var(--verdeescuro);
+  
+  /* Arredonda os cantos do card em 16px. */
+  border-radius: 16px;
+  
+  /* Cria uma borda inicial transparente. Isso evita que o layout "pule" quando a borda se torna visível no hover. */
+  border: 2px solid transparent;
+  
+  /* Essencial: esconde/corta qualquer conteúdo filho (como a imagem) que ultrapasse os cantos arredondados. */
+  overflow: hidden;
+  
+  /* Adiciona uma sombra sutil para dar profundidade ao card. */
+  box-shadow: 0 4px 12px var(--sombra);
+  
+  /* Define quais propriedades devem animar suavemente durante uma mudança (como no hover). */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Define os estilos para quando o mouse está sobre o card. */
+.thumbnail:hover {
+  /* Move o card 8 pixels para cima, criando um efeito de "elevação". */
+  transform: translateY(-8px);
+  
+  /* Aumenta a sombra para intensificar o efeito de elevação. */
+  box-shadow: 0 10px 20px var(--sombra);
+  
+  /* Torna a borda, que era transparente, visível com uma cor. */
+  border-color: var(--verdemediano);
+}
+
+/* Estiliza a imagem dentro do card. */
+.thumbnail img {
+  /* Faz a imagem ocupar 100% da largura do card. */
+  width: 100%;
+  
+  /* Define uma proporção de tela fixa (16:10). Todas as imagens terão essa forma, criando um visual uniforme. */
+  aspect-ratio: 16 / 10;
+  
+  /* Garante que a imagem preencha o espaço da proporção definida (cortando o excesso, se necessário) sem distorcer. */
+  object-fit: cover;
+  
+  /* Remove pequenos espaços que podem aparecer abaixo de imagens tratadas como elementos inline. */
+  display: block;
+}
+
+/* Estiliza o título (h2) dentro do card. */
+.thumbnail h2 {
+  /* Define a família da fonte do título. */
+  font-family: "Fredoka", sans-serif;
+  
+  /* Define o tamanho da fonte. */
+  font-size: 1.2rem;
+  
+  /* Define a altura da linha, melhorando a legibilidade. */
+  line-height: 1.4;
+  
+  /* Adiciona espaçamento interno ao redor do texto do título. */
+  padding: 1rem 1.2rem;
+  
+  /* Remove a margem padrão do h2. */
+  margin: 0;
+  
+  /* Chave para cards de altura igual: faz com que o espaço do título "cresça" para preencher qualquer espaço
+     vertical vazio no card. Isso alinha todos os títulos e rodapés dos cards na mesma linha da grade. */
+  flex-grow: 1; 
+}
+
+/* Estiliza a tag <strong>, caso seja usada dentro de um <h2>. */
+.thumbnail h2 strong {
+  /* Define um peso de fonte específico, evitando um negrito duplo ou indesejado. */
+  font-weight: 500;
+}
+
+/* Inicia o bloco de estilos para telas de até 768px de largura. */
+@media (max-width: 768px) {
+  
+  /* Ajusta o contêiner da grade para telas menores. */
+  .grid-container {
+    /* Reduz o espaçamento interno para dar mais espaço ao conteúdo. */
+    padding: 8rem 1rem 2rem;
+    
+    /* Reduz o espaço entre os cards. */
+    gap: 1.5rem;
+  }
+  
+  /* Ajusta o título do card para telas menores. */
+  .thumbnail h2 {
+    /* Diminui o tamanho da fonte para melhor encaixe. */
+    font-size: 1.1rem;
+    
+    /* Diminui o espaçamento interno. */
+    padding: 0.8rem 1rem;
+  }
+  
+  /* Ajusta o efeito de hover para dispositivos de toque. */
+  .thumbnail:hover {
+    /* Remove o efeito de elevação, pois ":hover" não funciona bem em telas de toque. */
+    transform: none;
+    
+    /* Restaura a sombra para seu estado padrão. */
+    box-shadow: 0 4px 12px var(--sombra);
+    
+    /* Restaura a borda para transparente. */
+    border-color: transparent;
+  }
+}

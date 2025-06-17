@@ -1,0 +1,59 @@
+/* Animações reutilizáveis */
+
+@keyframes fadeIn {
+  /* 'from' define o estado inicial da animação (o ponto de partida, em 0%). */
+  from {
+    /* O elemento começa completamente transparente, ou seja, invisível. */
+    opacity: 0;
+    /* O elemento começa deslocado 20 pixels PARA BAIXO de sua posição original. */
+    transform: translateY(20px);
+  }
+  /* 'to' define o estado final da animação (o ponto de chegada, em 100%). */
+  to {
+    /* O elemento termina totalmente opaco, ou seja, completamente visível. */
+    opacity: 1;
+    /* O elemento termina em sua posição original, sem nenhum deslocamento. */
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBody {
+  /* Define o estado inicial da animação (em 0%). */
+  from {
+    /* O elemento começa completamente transparente. */
+    opacity: 0;
+    /* 
+     A "origem" do background (gradiente ou imagem) começa alinhada
+     ao canto superior esquerdo do elemento.
+    */
+    background-position: left top;
+  }
+  /* Define o estado final da animação (em 100%). */
+  to {
+    /* O elemento termina totalmente visível. */
+    opacity: 1;
+    /*
+     A "origem" do background se move para o canto inferior direito.
+     Para um gradiente, isso cria um efeito dinâmico de "varredura"
+     ou movimento das cores enquanto o elemento aparece.
+    */
+    background-position: right bottom;
+  }
+}
+
+@keyframes slideDown {
+  /* Define o estado inicial da animação (em 0%). */
+  from {
+    /* O elemento começa deslocado 40 pixels PARA CIMA de sua posição final (o valor negativo em Y move para cima). */
+    transform: translateY(-40px);
+    /* O elemento também começa completamente invisível. */
+    opacity: 0;
+  }
+  /* Define o estado final da animação (em 100%). */
+  to {
+    /* O elemento termina em sua posição original, sem deslocamento. */
+    transform: translateY(0);
+    /* E termina totalmente visível. */
+    opacity: 1;
+  }
+}

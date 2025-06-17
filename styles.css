@@ -1,0 +1,60 @@
+/* ========================================= */
+/* ARQUIVO PRINCIPAL DE IMPORTAÇÃO           */
+/* Ordem: Fontes, Componentes, Páginas */
+/* ========================================= */
+
+/* 1. FONTES EXTERNAS */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Titillium+Web&display=swap');
+
+/* 2. ANIMAÇÕES (Podem ser usadas em qualquer lugar) */
+@import url('./css/animations.css');
+
+/* 3. COMPONENTES REUTILIZÁVEIS */
+@import url('./css/header.css');
+@import url('./css/footer.css');
+
+/* 4. ESTILOS ESPECÍFICOS DAS PÁGINAS */
+@import url('./css/index.css');   /* Estilos para a página de notícias/index */
+@import url('./css/sobre.css'); /* Estilos para a página Sobre */
+@import url('./css/redacao.css'); /* Estilos para a página da equipe do projeto */
+
+/* Estilos globais, reset e variáveis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta de Cores */
+  --verdeclaro: #b8e0cc;
+  --verdeescuro: #1c4a30;
+  --verdemediclaro: #9acfb8;
+  --verdemediano: #5ebd95;
+  --verdefundo: #e0f2e6;
+  --branco: #ffffff;
+  --titulo-claro: #e2e8f0;
+
+  /* Efeitos e Overlays */
+  --vidro: rgba(255, 255, 255, 0.1);
+  --menu: rgba(28, 74, 48, 0.9);
+  --sombra: rgba(94, 189, 149, 0.2);
+  --filtro: rgba(255, 255, 255, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Titillium Web", sans-serif;
+  background: var(--verdemediano);
+  background: radial-gradient(circle at 10% 20%, var(--verdemediano) 0%, transparent 20%),
+              radial-gradient(circle at 90% 80%, var(--verdeescuro) 0%, transparent 20%),
+              var(--verdemediclaro);
+  color: var(--titulo-claro);
+  min-height: 100vh;
+  animation: fadeInBody 1s ease-out;
+  position: relative;
+  overflow-x: hidden;
+}

@@ -1,0 +1,131 @@
+/* ========================================= */
+/*           PÁGINA SOBRE                    */
+/* ========================================= */
+
+/* Estiliza o contêiner principal que envolve o texto e a imagem da página "Sobre". */
+.sobre-container {
+  /* Ativa o layout de Grade (CSS Grid) para controle preciso do posicionamento dos filhos. */
+  display: grid;
+  
+  /* Define o layout da grade com duas colunas de tamanho igual. A unidade 'fr' (fração)
+     distribui o espaço disponível igualmente entre as colunas. */
+  grid-template-columns: 1fr 1fr;
+  
+  /* Alinha os itens da grade (o bloco de texto e a imagem) verticalmente ao centro de suas células. */
+  align-items: center;
+  
+  /* Cria um espaço de 3rem (aprox. 48px) entre as colunas da grade. */
+  gap: 3rem; 
+  
+  /* Define a largura máxima do contêiner, para que não fique muito largo em telas grandes. */
+  max-width: 1100px;
+  
+  /* Centraliza o contêiner na página (a margem automática só funciona quando 'max-width' está definido). */
+  margin: 0 auto; 
+  
+  /* Adiciona espaçamento interno: 10rem no topo, 2rem nos lados, 4rem na base. */
+  padding: 10rem 2rem 4rem; 
+  
+  /* Garante que a seção ocupe pelo menos 80% da altura da tela (viewport height),
+     evitando que o rodapé suba muito em páginas com pouco conteúdo. */
+  min-height: 80vh; 
+}
+
+/* Estiliza o bloco que contém apenas o texto. */
+.sobre-texto {
+  /* Aplica a animação 'fadeIn' (definida em @keyframes) com duração de 1 segundo e desaceleração no final. */
+  animation: fadeIn 1s ease-out;
+}
+
+/* Estiliza o título da página "Sobre". */
+.titulo-sobre {
+  /* Define a família da fonte do título. */
+  font-family: 'Fredoka', sans-serif;
+  /* Define o tamanho da fonte. */
+  font-size: 2.5rem;
+  /* Define a cor do texto usando uma variável global. */
+  color: var(--verdeescuro);
+  /* Adiciona uma margem inferior para separar o título dos parágrafos. */
+  margin-bottom: 1.5rem;
+}
+
+/* Estiliza os parágrafos de texto. */
+.paragrafo-sobre {
+  /* Define o tamanho da fonte. */
+  font-size: 1.1rem;
+  /* Aumenta o espaçamento entre as linhas para melhor legibilidade (1.7 vezes o tamanho da fonte). */
+  line-height: 1.7;
+  /* Define uma cor de texto escura para garantir um bom contraste com o fundo claro. */
+  color: #333; 
+  /* Adiciona um espaço abaixo de cada parágrafo. */
+  margin-bottom: 1rem;
+}
+
+/* Estiliza a imagem dentro do seu contêiner. */
+.sobre-imagem img {
+  /* Faz a imagem ocupar 100% da largura de seu contêiner pai (.sobre-imagem). */
+  width: 100%;
+  /* A altura se ajusta automaticamente para manter a proporção da imagem. */
+  height: auto;
+  /* Remove pequenos espaços que podem aparecer abaixo de imagens tratadas como elementos inline. */
+  display: block;
+  /* Arredonda os cantos da imagem. */
+  border-radius: 20px;
+  /* Adiciona uma borda sutil ao redor da imagem, usando uma cor de fundo do tema. */
+  border: 5px solid var(--verdefundo);
+  /* Adiciona uma sombra para dar profundidade e destacar a imagem. */
+  box-shadow: 0 10px 30px var(--sombra);
+  /* Prepara a propriedade 'transform' para animar suavemente durante 0.3 segundos. */
+  transition: transform 0.3s ease;
+  /* Aplica a animação 'fadeIn' com duração de 1s, desaceleração no final e um ATRASO de 0.2s para começar. */
+  animation: fadeIn 1s ease-out 0.2s; 
+  /* Garante que os estilos do 'from' da animação sejam aplicados antes dela começar, evitando um "piscar" inicial. */
+  animation-fill-mode: backwards; 
+}
+
+/* Define o estilo para quando o mouse está sobre a imagem. */
+.sobre-imagem img:hover {
+  /* Aumenta o tamanho da imagem em 3%, criando um efeito sutil de zoom. */
+  transform: scale(1.03);
+}
+
+
+/* ========================================= */
+/*         RESPONSIVIDADE DA PÁGINA SOBRE    */
+/* ========================================= */
+
+/* Inicia um bloco de estilos que só se aplica em telas com 850px de largura ou menos. */
+@media (max-width: 850px) {
+  
+  /* Ajusta o contêiner principal para telas menores. */
+  .sobre-container {
+    /* Muda o layout da grade para uma ÚNICA coluna, empilhando o texto e a imagem. */
+    grid-template-columns: 1fr;
+    /* Centraliza o texto, já que o layout agora é vertical. */
+    text-align: center;
+    /* Reduz o espaçamento interno para se adequar à tela menor. */
+    padding: 8rem 1.5rem 3rem;
+    /* Reduz o espaço entre os itens empilhados. */
+    gap: 2rem;
+  }
+  
+  /* Reordena o conteúdo no layout mobile. */
+  .sobre-imagem {
+    /* Força o contêiner da imagem a ocupar a primeira linha da grade, fazendo com que
+       ela apareça ACIMA do texto, mesmo que no HTML esteja depois. */
+    grid-row: 1; 
+  }
+
+  /* Reduz o tamanho do título em telas menores. */
+  .titulo-sobre {
+    font-size: 2rem;
+  }
+  
+  /* Ajusta os parágrafos para telas menores. */
+  .paragrafo-sobre {
+    /* Centraliza o texto do parágrafo. */
+    text-align: center;
+    /* Reduz o tamanho da fonte. */
+    font-size: 1rem;
+  }
+}

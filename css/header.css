@@ -1,0 +1,177 @@
+/* Estilos do Header, Nav e Menu Hambúrguer */
+
+/* Define um fundo decorativo fixo para toda a página */
+.efeitos-fundo {
+  position: fixed;        /* Fixa o elemento na tela, mesmo com rolagem. */
+  top: 0;                 /* Alinha no topo da tela. */
+  left: 0;                /* Alinha à esquerda da tela. */
+  width: 100%;            /* Ocupa 100% da largura da tela. */
+  height: 100%;           /* Ocupa 100% da altura da tela. */
+  z-index: -1;            /* Coloca o elemento atrás de todo o conteúdo. */
+  opacity: 0.3;           /* Deixa o fundo com 30% de opacidade (semitransparente). */
+  background:             /* Aplica um fundo com múltiplos gradientes. */
+    radial-gradient(circle at 10% 20%, var(--verdemediano) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--verdeescuro) 0%, transparent 20%),
+    var(--verdefundo);
+}
+
+/* Estiliza o cabeçalho principal */
+header {
+  padding: 1rem;                      /* Adiciona espaçamento interno. */
+  text-align: center;                 /* Centraliza o texto. */
+  border-bottom: 4px solid var(--verdemediano); /* Adiciona uma borda inferior colorida. */
+  background-color: var(--vidro);     /* Define um fundo semitransparente. */
+  backdrop-filter: blur(10px);        /* Aplica um efeito de desfoque no que está atrás. */
+  position: fixed;                    /* Fixa o cabeçalho no topo da tela. */
+  top: 0;                             /* Alinha no topo. */
+  width: 100%;                        /* Ocupa toda a largura. */
+  z-index: 10;                        /* Garante que fique acima de outros elementos. */
+  animation: slideDown 0.8s ease-out; /* Aplica a animação de deslizar para baixo. */
+  box-shadow: 0 0 10px var(--sombra); /* Adiciona uma sombra suave. */
+}
+
+/* Estiliza o título do jornal */
+.titulo-jornal {
+  font-family: "Fredoka", sans-serif; /* Define a fonte do título. */
+  font-size: 2.5rem;                  /* Define o tamanho da fonte. */
+  font-weight: bold;                  /* Deixa o texto em negrito. */
+  color: var(--verdeescuro);          /* Define a cor do texto. */
+  transition: color 0.3s;             /* Anima a mudança de cor em 0.3 segundos. */
+}
+
+/* Efeito ao passar o mouse sobre o título */
+.titulo-jornal:hover {
+  color: var(--verdemediano);         /* Muda a cor do texto no hover. */
+}
+
+/* Estiliza a barra de navegação */
+nav {
+  display: flex;                      /* Ativa o layout flexbox. */
+  justify-content: center;            /* Centraliza os itens horizontalmente. */
+  background-color: var(--menu);      /* Define a cor de fundo. */
+  backdrop-filter: blur(10px);        /* Aplica desfoque no que está atrás. */
+  padding: 0.5rem;                    /* Adiciona espaçamento interno. */
+  position: fixed;                    /* Fixa a navegação na tela. */
+  width: 100%;                        /* Ocupa toda a largura. */
+  top: 5rem;                        /* Posiciona 6.4rem abaixo do topo (abaixo do header). */
+  z-index: 9;                         /* Garante que fique acima do conteúdo, mas abaixo do header. */
+  animation: slideDown 1s ease-out;   /* Aplica a animação de deslizar para baixo. */
+  box-shadow: 0 2px 10px var(--sombra); /* Adiciona uma sombra suave. */
+}
+
+/* Estiliza o contêiner dos links de navegação */
+.cabecalho {
+  display: flex;                      /* Ativa o layout flexbox. */
+  gap: 1rem;                          /* Cria um espaçamento de 1rem entre os links. */
+  flex-wrap: wrap;                    /* Permite que os links quebrem a linha se não couberem. */
+  justify-content: center;            /* Centraliza os links. */
+}
+
+/* Estiliza cada link da navegação */
+.cabecalho a {
+  color: var(--titulo-claro);         /* Define a cor do texto. */
+  text-decoration: none;              /* Remove o sublinhado padrão. */
+  font-weight: bold;                  /* Deixa o texto em negrito. */
+  padding: 0.5rem 1rem;               /* Adiciona espaçamento interno. */
+  transition: all 0.3s ease;          /* Anima todas as propriedades em 0.3 segundos. */
+  position: relative;                 /* Prepara para posicionar o pseudo-elemento ::after. */
+}
+
+/* Cria o sublinhado animado (inicialmente invisível) */
+.cabecalho a::after {
+  content: '';                        /* Necessário para o pseudo-elemento aparecer. */
+  height: 2px;                        /* Define a altura do sublinhado. */
+  width: 0;                           /* Começa com largura zero (invisível). */
+  position: absolute;                 /* Posiciona em relação ao link (<a>). */
+  bottom: 0;                          /* Alinha na base do link. */
+  left: 0;                            /* Alinha à esquerda do link. */
+  background: linear-gradient(90deg, var(--verdeescuro), var(--verdemediano)); /* Define o gradiente do sublinhado. */
+  transition: width 0.4s ease;        /* Anima a mudança da largura em 0.4 segundos. */
+}
+
+/* Efeito ao passar o mouse sobre o link */
+.cabecalho a:hover::after {
+  width: 100%;                        /* Faz o sublinhado ocupar 100% da largura. */
+}
+
+/* Esconde o botão hambúrguer em telas grandes */
+.menu {
+  display: none;                      /* Torna o elemento invisível e não ocupa espaço. */
+}
+
+/* Inicia o bloco de estilos para telas de até 768px de largura */
+@media (max-width: 768px) {
+  
+  /* Ajusta o cabeçalho para telas pequenas */
+  header {
+    display: flex;                    /* Ativa o flexbox. */
+    justify-content: space-between;   /* Coloca o título de um lado e o menu do outro. */
+    align-items: center;              /* Alinha os itens verticalmente ao centro. */
+    padding: 0.8rem 1rem;             /* Reduz o espaçamento interno. */
+  }
+  
+  /* Reduz o tamanho do título em telas pequenas */
+  .titulo-jornal {
+    font-size: 1.5rem;                /* Diminui o tamanho da fonte. */
+  }
+  
+  /* Estiliza o botão hambúrguer para que seja visível */
+  .menu {
+    display: flex;                    /* Torna o botão visível. */
+    flex-direction: column;           /* Empilha as linhas (<span>) verticalmente. */
+    justify-content: space-around;    /* Distribui o espaço entre as linhas. */
+    width: 2rem;                      /* Define a largura do botão. */
+    height: 2rem;                     /* Define a altura do botão. */
+    background: transparent;          /* Deixa o fundo transparente. */
+    border: none;                     /* Remove a borda padrão. */
+    cursor: pointer;                  /* Mostra um cursor de mão ao passar por cima. */
+    padding: 0;                       /* Remove o espaçamento interno. */
+    z-index: 20;                      /* Garante que fique acima de tudo. */
+  }
+
+  /* Estiliza as linhas (<span>) dentro do botão hambúrguer */
+  .menu span {
+    width: 2rem;                      /* Define a largura da linha. */
+    height: 0.25rem;                  /* Define a altura (espessura) da linha. */
+    background: var(--verdeescuro);   /* Define a cor da linha. */
+    border-radius: 10px;              /* Arredonda as pontas da linha. */
+    transition: all 0.3s linear;      /* Anima todas as mudanças em 0.3 segundos. */
+    position: relative;               /* Permite transformações mais precisas. */
+    transform-origin: 1px;            /* Define o ponto de origem para a rotação. */
+  }
+  
+  /* Estiliza a navegação como um menu lateral escondido */
+  nav {
+    position: fixed;                  /* Fixa na tela. */
+    top: 0;                           /* Alinha no topo. */
+    right: 0;                         /* Alinha à direita. */
+    height: 100vh;                    /* Ocupa 100% da altura da tela. */
+    width: 70vw;                      /* Ocupa 70% da largura da tela. */
+    padding-top: 5rem;                /* Adiciona espaço no topo para o conteúdo. */
+    transform: translateX(100%);       /* Move o menu para fora da tela (à direita). */
+    transition: transform 0.3s ease-in-out; /* Anima o movimento de entrada/saída. */
+  }
+
+  /* Estilo do menu lateral quando está ativo (visível) */
+  nav.ativo {
+    transform: translateX(0);         /* Traz o menu de volta para a tela. */
+    box-shadow: -5px 0 15px var(--sombra); /* Adiciona uma sombra na lateral. */
+  }
+
+  /* Ajusta o contêiner dos links no menu lateral */
+  .cabecalho {
+    flex-direction: column;           /* Empilha os links verticalmente. */
+    align-items: center;              /* Centraliza os links horizontalmente. */
+    gap: 1.5rem;                      /* Aumenta o espaço entre os links. */
+  }
+  
+  /* Ajusta os links no menu lateral */
+  .cabecalho a {
+    font-size: 1.2rem;                /* Aumenta o tamanho da fonte para melhor toque. */
+  }
+  
+  /* Transforma o ícone hambúrguer em um 'X' quando o menu está ativo */
+  .menu.ativo span:nth-child(1) { transform: rotate(45deg); }      /* Rotaciona a primeira linha. */
+  .menu.ativo span:nth-child(2) { opacity: 0; transform: translateX(20px); } /* Esconde a segunda linha. */
+  .menu.ativo span:nth-child(3) { transform: rotate(-45deg); }     /* Rotaciona a terceira linha na direção oposta. */
+}

@@ -95,7 +95,7 @@
 /* ========================================= */
 
 /* Inicia um bloco de estilos que só se aplica em telas com 850px de largura ou menos. */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   
   /* Ajusta o contêiner principal para telas menores. */
   .sobre-container {

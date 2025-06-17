@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="350" alt="Imagem do Jornal Pomposo" src="img/jornal-pomposo.png">
+  <img width="800" alt="Imagem do Jornal Pomposo" src="img/jornal-pomposo.png">
 </p>
 
 # 🌱 Blog da Sustentabilidade
